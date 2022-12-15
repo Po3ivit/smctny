@@ -1,0 +1,73 @@
+
+/*
+if (!mess) {
+        const message = new Message({
+            stage: stage,
+            message: ["Приветствую! Вижу, вы пришли получить новогоднее предсказание. Давайте заглянем в мой волшебный шар и посмотрим, что он скажет.", "Что дальше?"],
+            link: ["DQACAgIAAxkBAAETG7lji02klel2VVhMa42ugMTlUzKxfAACeiEAApa9WEiaRYhEYhBVrSsE", "DQACAgIAAxkBAAETG-5ji17327Sry-bChWa4t-Ln4YSABwACAyIAApa9WEin4e9Eh8au5CsE", "DQACAgIAAxkBAAETG_Bji176jGDGwDd29QABMlqj8dDAIbsAAgQiAAKWvVhI7Tz66X7MhzQrBA", "DQACAgIAAxkBAAETG_Rji17_aRr7djdV845dyTmdFOwQNwACBiIAApa9WEiSVmcmuscj9isE"]
+
+        })
+        await message.save();
+    }
+
+[Markup.button.callback("Елка - гадалка", "Oracl-00")],
+    [Markup.button.callback("Снегирь-почтальон", "Mail-00")],
+    [Markup.button.callback("Снежок-dj", "DJ-00")],
+    [Markup.button.callback("Снеговик - ментор добра", "Mentor-00")],
+    [Markup.button.callback("Снежок-Коуч", "Couch-00")], 
+    
+    */
+/*
+await ctx.editMessageMedia(
+
+    {
+        type: "photo",
+        media: { source: "./assets/main/main.jpg" },
+        caption: message
+    },
+
+
+    {
+
+        parse_mode: "HTML",
+        ...Markup.inlineKeyboard([
+            [Markup.button.callback("Диджей", "DJ-00")],
+            [Markup.button.callback("Почтовый Снегирь", "Mail-00")],
+            [Markup.button.callback("Гадалка", "Oracl-00")],
+            [Markup.button.callback("Коуч", "Couch-00")],
+            [Markup.button.callback("Ментор добра", "Mentor-00")],
+        ]),
+    })
+*/
+
+
+bot.action("start_with_media", async (ctx) => {
+    let stage = "start"
+    await ctx.answerCbQuery()
+    let mess = await Message.findOne({ stage: stage })
+    message = mess.toJSON().message
+    link = mess.toJSON().link
+    console.log(message)
+    await ctx.editMessageMedia(
+
+        {
+            type: "photo",
+            media: { source: "./assets/main/main.jpg" },
+            caption: message
+        },
+
+
+        {
+
+            parse_mode: "HTML",
+            ...Markup.inlineKeyboard([
+                [Markup.button.callback("Диджей", "DJ-00")],
+                [Markup.button.callback("Почтовый Снегирь", "Mail-00")],
+                [Markup.button.callback("Гадалка", "Oracl-00")],
+                [Markup.button.callback("Коуч", "Couch-00")],
+                [Markup.button.callback("Ментор добра", "Mentor-00")],
+            ]),
+        }
+    )
+
+})
