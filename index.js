@@ -1,6 +1,5 @@
 const { Telegraf, Markup } = require('telegraf');
-//const bot = new Telegraf("5319197663:AAGo8dn39CC0LTitANQlcgXjq_O3Fekw1rU");
-const bot = new Telegraf("5413807390:AAGkReqqF9jUNk-UADIgWube5_qW22PrpSc");
+
 const mongoose = require('mongoose');
 const urlmdb = "mongodb://localhost:27017/newYearSamocat"
 const sharp = require('sharp');
